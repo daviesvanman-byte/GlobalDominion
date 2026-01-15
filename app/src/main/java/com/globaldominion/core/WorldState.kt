@@ -71,8 +71,8 @@ class WorldState {
                 intelligenceAgencyEffectiveness = Random.nextFloat() * 0.5f + 0.5f,
                 publicCompliance = Random.nextFloat() * 0.3f + 0.6f
             ),
-            gdp = gdp,
-            militaryPower = military,
+            economy = Economy(gdp = gdp.toDouble(), debt = gdp.toDouble() * 0.5, stability = 60),
+            military = Military(strength = military.toInt(), nuclearCapable = military > 70, readiness = 60),
             publicOpinion = PublicOpinion(
                 governmentSupport = Random.nextFloat() * 30f + 50f,
                 protestIntensity = Random.nextFloat() * 20f
@@ -108,7 +108,7 @@ class WorldState {
                 if (country.id != other.id) {
                     val relation = when {
                         alliances[country.id]?.contains(other.id) == true -> 70f + Random.nextFloat() * 20f
-                        country.government.type == other.government.type -> 50f + Random.nextFloat() * 20f
+                        country.government?.type == other.government?.type -> 50f + Random.nextFloat() * 20f
                         else -> 30f + Random.nextFloat() * 30f
                     }
                     country.relations[other.id] = relation

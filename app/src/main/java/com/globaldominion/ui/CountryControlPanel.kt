@@ -61,7 +61,7 @@ fun CountryControlPanel(
                             fontSize = 16.sp
                         )
                         Text(
-                            text = country.government.type.name.replace("_", " "),
+                            text = country.government?.type?.name?.replace("_", " ") ?: "Unknown",
                             fontSize = 12.sp,
                             color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
                         )
