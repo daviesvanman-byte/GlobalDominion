@@ -1,0 +1,15 @@
+{
+	"name": "GlobalDominion Android",
+	"image": "mcr.microsoft.com/devcontainers/universal:4.0.1-noble",
+	"features": {
+		"ghcr.io/anthropics/devcontainer-features/android-sdk:1": {
+			"cmdLineToolsVersion": "latest",
+			"platformVersion": "34",
+			"buildToolsVersion": "34.0.0"
+		}
+	},
+	"containerEnv": {
+		"ANDROID_HOME": "/usr/local/android-sdk",
+		"ANDROID_SDK_ROOT": "/usr/local/android-sdk"
+	}
+}
